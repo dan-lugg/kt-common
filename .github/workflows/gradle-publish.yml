@@ -34,17 +34,17 @@ jobs:
       - name: Build with Gradle
         run: gradle build
 
-      - name: Publish kt-common-util to GitHub Packages
+      - name: Publish common to GitHub Packages
         run: |
-          cd ./kt-common-util
+          cd ./common
           gradle publish
         env:
           USERNAME: ${{ github.actor }}
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish kt-common-commands to GitHub Packages
+      - name: Publish common-commands to GitHub Packages
         run: |
-          cd ./kt-common-commands
+          cd ./common-commands
           gradle publish
         env:
           USERNAME: ${{ github.actor }}
