@@ -1,4 +1,4 @@
-# Common, `com.luggsoft.common`
+# Common, `com.luggsoft.kt.common`
 
 [![CircleCI][img-circleci]][www-circleci]
 [![License][img-license]][www-license]
