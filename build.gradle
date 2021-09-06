@@ -95,8 +95,12 @@ subprojects {
                 name = "GitHubPackages"
                 url = uri("https://maven.pkg.github.com/dan-lugg/kt-k4")
                 credentials {
-                    username = System.getenv("GITHUB_USERNAME") ?: System.getenv("USERNAME")
-                    password = System.getenv("GITHUB_PASSWORD") ?: System.getenv("TOKEN")
+                    username = project.findProperty("gpr.user")
+                            ?: System.getenv("GITHUB_USERNAME")
+                            ?: System.getenv("USERNAME")
+                    password = project.findProperty("gpr.key")
+                            ?: System.getenv("GITHUB_PASSWORD")
+                            ?: System.getenv("TOKEN")
                 }
             }
         }

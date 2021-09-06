@@ -11,6 +11,7 @@ inline fun <reified TCommand : Command<TResult>, TCommandContext : CommandContex
         commandClass = commandClass,
         commandHandlerFactory = commandHandlerFactory
     )
+    @Suppress("UNCHECKED_CAST")
     return commandHandlerMapping as CommandHandlerMapping<Command<*>, TCommandContext, *>
 }
 
