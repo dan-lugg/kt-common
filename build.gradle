@@ -10,7 +10,7 @@ plugins {
 apply from: "dependencies.gradle"
 
 allprojects {
-    group "com.luggsoft.kt.common"
+    group "com.luggsoft.common"
     version "${System.getenv("RELEASE_VERSION")}"
 }
 
