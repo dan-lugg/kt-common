@@ -1,0 +1,5 @@
+dependencies {
+    implementation(
+            project(":kt-common-util"),
+    )
+}
