@@ -1,0 +1,8 @@
+import com.luggsoft.codegen.CodegenTask
+
+tasks.register("codegen", CodegenTask) {
+    basePath = "${kotlin.sourceSets.main.kotlin.srcDirs.first().absolutePath}/generated/"
+    permutations = 12
+}
+
+compileKotlin.dependsOn(codegen)

@@ -32,7 +32,7 @@ jobs:
         run: echo ${{ env.RELEASE_VERSION }}
 
       - name: Build with Gradle
-        run: gradle build
+        run: gradle clean codegen build
         env:
           GITHUB_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -40,14 +40,6 @@ jobs:
       - name: Publish common to GitHub Packages
         run: |
           cd ./common
-          gradle publish
-        env:
-          GITHUB_USERNAME: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish common-commands to GitHub Packages
-        run: |
-          cd ./common-commands
           gradle publish
         env:
           GITHUB_USERNAME: ${{ github.actor }}
