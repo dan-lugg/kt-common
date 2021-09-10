@@ -2,7 +2,7 @@ static def buildLibraries(Map<String, Object> libraryVersionMapping) {
     return libraryVersionMapping
             .collect { entry -> entry.value == null ? null : "${entry.key}:${entry.value}" }
             .findAll { library -> library != null }
-            .each { library -> println("lib -> $library") }
+    // .each { library -> println("lib -> $library") }
 }
 
 ext.versions = [
