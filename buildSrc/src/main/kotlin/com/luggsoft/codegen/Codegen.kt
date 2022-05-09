@@ -1,8 +1,8 @@
 package com.luggsoft.codegen
 
-import com.luggsoft.codegen.generators.MemoizedGenerator
-import com.luggsoft.codegen.generators.PartialGenerator
-import com.luggsoft.codegen.generators.TupleGenerator
+import com.luggsoft.codegen.generators.MemoizedCodeGenerator
+import com.luggsoft.codegen.generators.PartialCodeGenerator
+import com.luggsoft.codegen.generators.TupleCodeGenerator
 import org.gradle.api.logging.Logger
 import java.nio.file.Paths
 
@@ -18,19 +18,19 @@ internal object Codegen
         try
         {
             val generators = listOf(
-                TupleGenerator(
+                TupleCodeGenerator(
                     path = Paths.get(basePath, "Tuple.kt")
                         .toAbsolutePath()
                         .toString(),
                     permutations = permutations,
                 ),
-                PartialGenerator(
+                PartialCodeGenerator(
                     path = Paths.get(basePath, "Partial.kt")
                         .toAbsolutePath()
                         .toString(),
                     permutations = permutations,
                 ),
-                MemoizedGenerator(
+                MemoizedCodeGenerator(
                     path = Paths.get(basePath, "Memoized.kt")
                         .toAbsolutePath()
                         .toString(),
@@ -40,7 +40,7 @@ internal object Codegen
 
             generators.forEach { generator ->
                 logger.info("Generating code with $generator")
-                generator.generate()
+                generator.generateCode()
             }
         }
         catch (exception: Exception)

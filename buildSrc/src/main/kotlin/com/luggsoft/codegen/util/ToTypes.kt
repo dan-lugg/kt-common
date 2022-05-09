@@ -1,3 +1,3 @@
-package com.luggsoft.codegen
+package com.luggsoft.codegen.util
 
-internal fun IntRange.toTypes() = this.joinToString { i -> "T$i" }
+internal fun Iterable<Int>.toTypes() = this.joinToString { i -> "T$i" }

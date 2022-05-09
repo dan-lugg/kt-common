@@ -1,3 +1,3 @@
-package com.luggsoft.codegen
+package com.luggsoft.codegen.util
 
-internal fun IntRange.toParams() = this.joinToString { i -> "p$i: T$i" }
+internal fun Iterable<Int>.toParams() = this.joinToString { i -> "p$i: T$i" }
