@@ -2,20 +2,19 @@ package com.luggsoft.codegen.generators
 
 import java.io.File
 
-internal abstract class GeneratorBase : Generator
+internal abstract class CodeGeneratorBase : CodeGenerator
 {
     abstract val path: String
 
     abstract val permutations: Int
 
-    final override fun generate()
+    final override fun generateCode()
     {
         try
         {
-            val code = this.buildCode()
             val file = File(this.path)
             file.parentFile.mkdirs()
-            file.writeText(code)
+            file.writer().use(this::generateCode)
         }
         catch (exception: Exception)
         {
@@ -23,6 +22,4 @@ internal abstract class GeneratorBase : Generator
             throw exception
         }
     }
-
-    protected abstract fun buildCode(): String
 }
