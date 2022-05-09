@@ -1,6 +1,13 @@
 package com.luggsoft.common.text
 
-fun CharSequence.normalizeLineSeparators(): CharSequence = this
-    .toString()
-    .replace("\r\n", "\n")
-    .replace("\r", "\n")
+/**
+ * Normalizes the [line separators][com.luggsoft.common.text.LineSeparator].
+ */
+fun CharSequence.normalizeLineSeparators(lineSeparator: LineSeparator): CharSequence = when (val currentLineSeparator = this.detectLineSeparator())
+{
+    LineSeparator.UNKNOWN -> this
+    else -> this.toString().replace(
+        oldValue = currentLineSeparator.charSequence.toString(),
+        newValue = lineSeparator.charSequence.toString(),
+    )
+}
