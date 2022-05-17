@@ -3,7 +3,7 @@ package com.luggsoft.common.text
 /**
  * Escapes all [characters][kotlin.Char] in the [character sequence][kotlin.CharSequence] to be used in a valid Kotlin [String][kotlin.String] literal.
  */
-internal fun CharSequence.kotlinEscape(): String
+fun CharSequence.kotlinEscape(): String
 {
     val escapedStringBuilder = StringBuilder()
 
@@ -19,7 +19,7 @@ internal fun CharSequence.kotlinEscape(): String
 /**
  * Escapes the [character][kotlin.Char] to be used in a valid Kotlin [String][kotlin.String] literal.
  */
-internal fun Char.kotlinEscape(): String = when
+fun Char.kotlinEscape(): String = when
 {
     this == '\b' -> "\\b"
     this == '\t' -> "\\t"
