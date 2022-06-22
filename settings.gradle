@@ -25,4 +25,5 @@ rootProject.name = "kt-common"
 
 include(
         "common",
+        "common-spring",
 )
