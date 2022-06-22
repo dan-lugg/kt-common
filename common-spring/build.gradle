@@ -1,0 +1,6 @@
+dependencies {
+    implementation(
+            project(":common"),
+            "org.springframework:spring-context:5.3.20"
+    )
+}
